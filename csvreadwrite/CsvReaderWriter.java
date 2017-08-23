@@ -20,12 +20,12 @@ public class CsvReaderWriter {
 
 	private static void writeCsvFile(String csvFile) {
 
-		Student student1 = new Student(10, "Jinal", "Patel", "female", 28);
-		Student student2 = new Student(20, "Vishal", "Bhai", "male", 29);
-		Student student3 = new Student(30, "Nupur", "Tonpe", "female", 27);
-		Student student4 = new Student(40, "Disha", "Patel", "female", 29);
-		Student student5 = new Student(15, "Mike", "Welsh", "male", 50);
-		Student student6 = new Student(60, "Abhijit", "Alur", "male", 30);
+		Student student1 = new Student(10, "John", "Doe", "female", 28);
+		Student student2 = new Student(20, "Smith", "Johns", "male", 29);
+		Student student3 = new Student(30, "Luke", "Cage", "female", 27);
+		Student student4 = new Student(40, "Jessica", "Jones", "female", 29);
+		Student student5 = new Student(15, "John", "Snow", "male", 50);
+		Student student6 = new Student(60, "Claire", "Chris", "male", 30);
 
 		ArrayList<Student> students = new ArrayList<>();
 		students.add(student1);
