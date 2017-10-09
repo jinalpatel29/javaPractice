@@ -17,14 +17,14 @@ public class ParseTokenToList {
 		Scanner sc = new Scanner(System.in);
 		String file = sc.next();
 		String fileName = System.getProperty("user.home")+"/"+file;	
-
+		// Check of fileName is null or empty string return with invalid msg
 		String token = getFileExtention(fileName);
-
+		// Check if token is null and return with error msg if it is
 		javaParserUtility(fileName, token);
 		sc.close();
 	}
 
-	private static void javaParserUtility(String fileName, String token) throws IOException {
+	private static void javaParserUtility(String fileName, String token) throws IOException { // Don't make it void instead return Array of Strings and output in main()
 		BufferedReader reader = null;
 		try{
 			reader = new BufferedReader(new FileReader(fileName));
@@ -35,10 +35,10 @@ public class ParseTokenToList {
 				line = line.replaceAll(pattern, "");
 				System.out.println("Line After removing special chars\n"+line+"\n");
 
-				if(null != token){
+				if(token != null){ // null check should always be in the order of variable first 
 					String[] words = line.split(token);
-					if(words != null){
-						List<String> resultList = new ArrayList<>(Arrays.asList(words)); //converArrayIntoList(words);
+					if(words != null){ //also check if words is empty 
+						List<String> resultList = new ArrayList<>(Arrays.asList(words)); // Is this necessary? //converArrayIntoList(words);
 						System.out.println(resultList+"\n");
 					}
 				}
@@ -47,7 +47,7 @@ public class ParseTokenToList {
 		}catch (IOException e) {
 			System.err.println(e);
 		}finally {
-			if(reader!=null){
+			if(reader != null){
 				reader.close();
 			}
 		}
@@ -55,6 +55,9 @@ public class ParseTokenToList {
 
 
 	private static String getFileExtention(String fileName) {
+		// Use Utils to get extension don't do this
+		// FilenameUtils.getExtension("/path/to/file/foo.txt")
+		// Avoid writing unecessary lines of code
 		int i = fileName.lastIndexOf('.');	
 		String extention = null;
 		if(i>0){
